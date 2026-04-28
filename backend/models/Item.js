@@ -27,6 +27,12 @@ const itemSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    // NEW FIELD ADDED HERE
+    customerReviewCount: {
+      type: Number,
+      required: [true, "Customer review count is required"],
+      min: [0, "Review count cannot be negative"],
+    },
   },
   { timestamps: true }
 );

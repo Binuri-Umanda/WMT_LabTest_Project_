@@ -8,6 +8,7 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
       price: "",
       description: "",
       imageUrl: "",
+      customerReviewCount: "", // NEW FIELD ADDED TO STATE
     }
   );
 
@@ -21,6 +22,7 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
     onSubmit({
       ...formData,
       price: Number(formData.price),
+      customerReviewCount: Number(formData.customerReviewCount), // CONVERT TO NUMBER
     });
   };
 
@@ -54,6 +56,16 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
 
       <label>Image URL</label>
       <input name="imageUrl" value={formData.imageUrl} onChange={handleChange} />
+
+      {/* NEW FIELD INPUT ADDED HERE */}
+      <label>Customer Review Count</label>
+      <input
+        type="number"
+        name="customerReviewCount"
+        value={formData.customerReviewCount}
+        onChange={handleChange}
+        required
+      />
 
       <button className="btn primary" type="submit">{submitText}</button>
     </form>
